@@ -1,0 +1,487 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+
+:root{
+    --test-color: rgba(0,0,0,0.3);
+    --button-color: rgb(255, 119, 0);
+    --primary: #183A1D;
+    --secondary: #F0A04B;
+    --tertiary: #E1EEDD;
+    --bright-text: #FEFBE9;
+}
+
+/* body {
+    background-image: url('../img/acheronbg.jpg');
+    background-position: center;
+    background-size: cover;
+} */
+
+
+
+/* GRID CONTAINER */
+
+
+
+.container {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+        grid-template-columns: 0.6fr 3fr;
+}
+
+
+/* ASIDE NAV */
+
+
+
+aside {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, #0a0a27, #161651);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow:  0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+aside h1 {
+    padding: 45px 0;
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    box-sizing: border-box;
+}
+
+aside .nav {
+    display: flex;
+    flex-direction: column;
+
+}
+.nav a, .nav span {
+    font-weight: 300;
+}
+
+.nav a {
+    margin: 20px 0;
+    padding: 10px 50px 10px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+    /* background-color: rgba(255, 228, 196, 0.364); */
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    gap: 20px;
+    position: relative;
+    transition: .1s ease;
+}
+
+.nav a::after {
+    content: "";
+    width: 3px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    transform: scaley(0);
+    transform-origin: top;
+    background-color: rgb(255, 158, 31);
+    z-index: -1;
+    right: 0;
+    top: 0;
+    transition: .1s ease;
+}
+
+.nav a:hover::after {
+    transform: scaley(1);
+    width: 100%;
+
+}
+
+.nav a:active {
+    color: white;
+}
+
+aside button {
+    margin: 0 auto;
+    width: 60%;
+    padding: 7px 0;
+    border-radius: 5px;
+    position: relative;
+    bottom: -35%;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 5;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    transition: .2s;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+
+aside button:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    mix-blend-mode: screen;
+    background-size: 200%;
+    border-radius: 50px;
+    opacity: .5;
+    transition: 0.5s;
+    animation: rainbow1 4s linear infinite;
+    z-index: -1;
+    filter: blur(10px);
+}
+
+aside button:hover::before {
+    background-size: 300%;
+    opacity: 1;
+}
+
+aside button:active {
+    transform: scale(0.9);
+}
+
+@keyframes rainbow1 {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+
+
+/* MAIN CONTENT */
+
+
+
+main {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+}
+
+
+
+/* HEADER & TOMBOL btnTambah */
+
+
+
+main .header {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 60px;
+}
+
+main button.btnTambah {
+    box-sizing: border-box;
+    padding: 10px 50px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 5px;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+main button.btnTambah::after {
+    content: '';
+    width: 0;
+    height: 100%;
+    display: block;
+    transform: skew(20deg);
+    position: absolute;
+    top: 0;
+    left: -5%;
+    background-color: #49e45b;
+    transition: .3s;
+    z-index: -1;
+}
+
+main button.btnTambah:hover::after {
+    width: 120%;
+}
+
+main button.btnTambah:active {
+    color: white;
+    transform: scale(0.9);
+    transform-origin: center;
+}
+
+
+
+/* TABLE */
+
+
+
+.table-container {
+    margin: auto;
+    width: 90%;
+    height: 75%;
+    border-radius: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+.table-container::-webkit-scrollbar {
+    display: none;
+}
+
+.table-container table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+
+.table-container table th {
+    position: sticky;
+    top: 0;
+}
+
+table th, td {
+    padding: 10px;
+}
+
+table th {
+    background-color: rgb(255, 175, 71);
+    z-index: 5;
+}
+
+.table-container table tr:nth-child(even){
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* BUTTON EDIT & HAPUS */
+
+
+
+tbody a.btnEdit, a.btnHapus {
+    margin: 0 10px;
+    width: 30%;
+    padding: 3px 10px;
+    color: #a2a1b6;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: var(--secondary);
+    border: 1px solid rgb(255, 255, 255);
+    box-sizing: border-box;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: .2s ease;
+    overflow: hidden;
+    z-index: 1;
+}
+
+tbody a.btnEdit::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    display: block;
+    background-color: #75ae4d;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transform-origin: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: 0.2s ease;
+}
+
+a.btnEdit:hover {
+    color: white;
+}
+
+a.btnEdit:hover::after {
+    transform: scaleX(1);
+}
+
+a.btnHapus::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    display: block;
+    background-color: #ae4d4d;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transform-origin: right;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: 0.2s ease;
+}
+
+a.btnHapus:hover {
+    color: white;
+}
+
+a.btnHapus:hover::after {
+    transform: scaleX(1);
+}
+
+
+
+/* FORM TAMBAH */
+
+
+
+.wrapperTambah.active1 {
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%,-50%) scaleX(1);
+    transform-origin: bottom;
+}
+
+.wrapperTambah {
+    height: 600px;
+    width: 50%;
+    background-image: linear-gradient( #0a0a27, #161651);
+    position: fixed;
+
+    /* ANIMATED PROPERTIES */
+    top: 100%;
+    left: 57%;
+    transform: translate(-50%,-50%) scaleY(0);
+    opacity: .5;
+
+    box-shadow: 0 0 40px rgba(8,7,16,0.5);
+    border-radius: 10px;
+    outline: #0a0a27 1px solid;
+    outline-offset: -20px;
+    transition: 0.3s;
+    z-index: 9;
+    overflow: hidden;
+}
+
+.wrapperTambah .shape1 {
+    width: 500px;
+    height: 500px;
+    display: block;
+    background-image: linear-gradient(to right, rgb(126, 71, 28), rgb(255, 180, 49));
+    transform: rotate(45deg);
+    border-radius: 50%;
+    position: absolute;
+    top: -40%;
+    left: -30%;
+    z-index: -1;
+}
+
+.wrapperTambah .shape2 {
+    width: 300px;
+    height: 300px;
+    display: block;
+    background-image: linear-gradient(to right, rgb(255, 111, 0), rgb(255, 255, 0));
+    transform: rotate(45deg);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -20%;
+    right: -20%;
+    z-index: -1;
+}
+
+.wrapperTambah::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapperTambah form {
+    margin: auto;   
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: transparent;
+    padding: 50px 50px;
+}
+
+.wrapperTambah form h1 {
+    text-align: center;
+    color: white;
+    padding-bottom: 10px;
+}
+
+.wrapperTambah form input{
+    height: 40px;
+    border: none;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.136);
+    border: 1px solid lightslategray;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.wrapperTambah form label {
+    color: white;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.136);
+}
+
+.wrapperTambah form button {
+    margin: 20px auto 0;
+    width: 60%;
+    background-color: #000;
+    border: none;
+    color: white;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    position: relative;
+    padding: 10px 30px;
+    transition: .5s;
+    background-size: 400%;
+    animation: rainbow 8s linear infinite;
+    cursor: pointer;
+}
+
+.wrapperTambah button:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, rgba(0, 0, 255, 0.5), rgba(255, 0, 0, 0.8), rgba(255, 255, 0, 0.8), rgba(0, 0, 255, 0.8));
+    background-size: 200%;
+    border-radius: 8px;
+    opacity: .5;
+    transition: 0.5s;
+    animation: rainbow 4s linear infinite;
+    filter: blur(15px);
+}
+
+.wrapperTambah button:hover:before {
+    opacity: 1;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+
+
+/* FORM EDIT */
+
+
+
+

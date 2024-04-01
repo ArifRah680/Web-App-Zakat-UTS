@@ -1,0 +1,143 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+:root{
+     --test-color: rgba(0,0,0,0.3);
+     --button-color: rgb(255, 154, 66);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+
+.form-box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 70px 0;
+    width: 450px;
+    z-index: 10;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.1);
+    z-index: 10;
+}
+
+.form-box form{
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+    width: 80%;
+    z-index: 1;
+}
+
+.form-box img {
+    width: 200px;
+    height: 200px;
+}
+
+.form-box .register {
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+}
+
+.form-box form h3{
+    padding: 10px;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+.form-box form label{
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form-box input{
+    box-sizing: border-box;
+    border: 1px solid rgb(0, 0, 0, 0.3);
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.7);
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+::placeholder{
+    color: #656565;
+}
+
+.form-box button{
+    margin-top: 40px;
+    width: 100%;
+    background-color: #000;
+    color: white;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    padding: 10px 30px;
+    transition: .2s;
+    background-size: 400%;
+    animation: rainbow 8s linear infinite;
+    cursor: pointer;
+}
+
+.form-box button:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 200%;
+    border-radius: 8px;
+    opacity: 1;
+    transition: 0.5s;
+    animation: rainbow 4s linear infinite;
+    filter: blur(10px);
+}
+
+@keyframes rainbow {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+.form-box button:hover:before {
+    filter: blur(20px);
+}
+
+.form-box button:active {
+    background-color: white;
+    color: black;
+}
